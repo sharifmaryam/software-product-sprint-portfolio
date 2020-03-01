@@ -26,3 +26,33 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function getMessage() {
+  console.log('Fetching a message.');
+
+  // The fetch() function returns a Promise because the request is asynchronous.
+  const responsePromise = fetch('/data');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(handleResponse);
+}
+
+function handleResponse(response) {
+  console.log('Handling the response.');
+
+  // response.text() returns a Promise, because the response is a stream of
+  // content and not a simple variable.
+  const textPromise = response.text();
+
+  // When the response is converted to text, pass the result into the
+  // addQuoteToDom() function.
+  textPromise.then(addMessageToDom);
+}
+
+/** Adds a random quote to the DOM. */
+function addMessageToDom(message) {
+  console.log('Adding message to dom: ' + message);
+
+  const quoteContainer = document.getElementById('dataservlet-container');
+  quoteContainer.innerText = message;
+}
