@@ -14,6 +14,7 @@
 
 package com.google.sps.servlets;
 
+
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,19 +28,26 @@ import java.util.ArrayList;
 public class DataServlet extends HttpServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     ArrayList<String> messages = new ArrayList<String>();
-    messages.add("Hello");
-    messages.add("Goodbye");
-    messages.add("See you later");
-
+    String comment = getParameter(request, "textInput", "nothing");
+    messages.add(comment);
     Gson gson = new Gson();
     String json = gson.toJson(messages);
 
     response.setContentType("text/html;");
     response.getWriter().println(json);
+    response.sendRedirect("https://google.com");
   }
 
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    System.out.print(value);
+    if (value == null) {
+        return defaultValue;
+    }
+    return value;
+  }
 
 
 }
