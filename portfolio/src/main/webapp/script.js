@@ -30,11 +30,11 @@ function addRandomGreeting() {
 function getMessage() {	
     var i;	
     fetch('/data').then(response => response.json()).then((json) => {	
-    const messagesListElement = document.getElementById('messages-container');	
-    messagesListElement.innerHTML = '';	
-    for (i = 0; i < json.length; i++) {	
-        messagesListElement.appendChild(createListElement(json[i]));	
-    }	
+        const messagesListElement = document.getElementById('messages-container');	
+        messagesListElement.innerHTML = '';	
+        for (i = 0; i < json.length; i++) {	
+            messagesListElement.appendChild(createListElement(json[i]));	
+        }	
     });	
 }	
 
