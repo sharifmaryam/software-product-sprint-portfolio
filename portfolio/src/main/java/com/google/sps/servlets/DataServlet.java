@@ -45,7 +45,7 @@ public class DataServlet extends HttpServlet {
     List<Comment> savedComments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      String title = (String) entity.getProperty("title");
+      String title = (String) entity.getProperty("comment");
       long timestamp = (long) entity.getProperty("timestamp");
 
       Comment newComment = new Comment(id, title, timestamp);
