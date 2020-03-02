@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,14 +28,10 @@ import java.util.ArrayList;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+  ArrayList<String> messages = new ArrayList<String>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> messages = new ArrayList<String>();
-    messages.add("Hello");
-    messages.add("Goodbye");
-    messages.add("See you later");
-
     Gson gson = new Gson();
     String json = gson.toJson(messages);
 
@@ -41,5 +40,19 @@ public class DataServlet extends HttpServlet {
   }
 
 
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String comment = getParameter(request, "text-input", "nothing");
+    messages.add(comment);
+    response.sendRedirect("/index.html");
+  }
 
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    System.out.print(value);
+    if (value == null) {
+        return defaultValue;
+    }
+    return value;
+  }
 }
