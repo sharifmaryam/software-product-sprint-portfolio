@@ -49,5 +49,23 @@ function createMap() {
   var map = new google.maps.Map(
       document.getElementById('map'),
       {center: {lat: 39.8097343, lng: -98.5556199}, zoom: 3.5});
-}
 
+  var marker = new google.maps.Marker({position: {lat: 42.9634 , lng: -85.6681}, map: map, title: 'Grand Rapids, MI'});
+  var marker1 = new google.maps.Marker({position: {lat: 42.2808 , lng: -83.7430}, map: map, title: 'Ann Arbor, MI'});
+  var marker2 = new google.maps.Marker({position: {lat: 42.3314 , lng: -83.0458}, map: map, title: 'Detroit, MI'});
+  var marker3 = new google.maps.Marker({position: {lat: 42.7325 , lng: -84.5555}, map: map, title: 'Lansing, MI'});
+  var marker4 = new google.maps.Marker({position: {lat: 28.5383 , lng: -81.3792}, map: map, title: 'Orlando, FL'});
+  var marker5 = new google.maps.Marker({position: {lat: 37.7749 , lng: -122.4194}, map: map, title: 'San Francisco, CA'});
+  var marker6 = new google.maps.Marker({position: {lat: 32.7157 , lng: -117.1611}, map: map, title: 'San Diego, CA'});
+  var marker7 = new google.maps.Marker({position: {lat: 34.0522 , lng: -118.2437}, map: map, title: 'Los Angeles, CA'});
+  var marker8 = new google.maps.Marker({position: {lat: 42.3601 , lng: -71.0589}, map: map, title: 'Boston, MA'});
+  var marker9 = new google.maps.Marker({position: {lat: 40.7128 , lng: -74.0060}, map: map, title: 'New York City, NY'});
+  var marker10 = new google.maps.Marker({position: {lat: 39.7392 , lng: -104.9903}, map: map, title: 'Denver, CO'});
+  var marker11 = new google.maps.Marker({position: {lat: 39.0997 , lng: -94.5786}, map: map, title: 'Kansis City, MO'});
+  var marker12 = new google.maps.Marker({position: {lat: 41.8781 , lng: -87.6298}, map: map, title: 'Chicago, IL'});
+  var marker13 = new google.maps.Marker({position: {lat: 38.9072 , lng: -77.0369}, map: map, title: 'Washington, DC'});
+  var marker14 = new google.maps.Marker({position: {lat: 39.1157 , lng: -77.5636}, map: map, title: 'Leesburg, VA'});
+  var marker15 = new google.maps.Marker({position: {lat: 36.1627 , lng: -86.7816}, map: map, title: 'Nashville, TN'});
+  var marker16 = new google.maps.Marker({position: {lat: 44.9778 , lng: -93.2650}, map: map, title: 'Minneapolis, MN'});
+  var marker17 = new google.maps.Marker({position: {lat: 39.9612 , lng: -82.9988}, map: map, title: 'Columbus, OH'});
+}
