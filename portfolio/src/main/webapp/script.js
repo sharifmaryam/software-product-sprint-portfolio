@@ -50,11 +50,31 @@ function createMap() {
       document.getElementById('map'),
       {center: {lat: 39.8097343, lng: -98.5556199}, zoom: 3.5});
 
+  var infowindow = new google.maps.InfoWindow({
+    content: 'I was born and raised in Grand Rapids, MI.'
+  });
+
+  var infowindow1 = new google.maps.InfoWindow({
+    content: 'I attend the University of Michigan in Ann Arbor, MI.'
+  });
+
+  var infowindow2 = new google.maps.InfoWindow({
+    content: 'I drove 18 hours to Orlando with my family for Spring Break. I also flew to Orlando before but only for Disney World.'
+  });
   var marker = new google.maps.Marker({position: {lat: 42.9634 , lng: -85.6681}, map: map, title: 'Grand Rapids, MI'});
+  marker.addListener('click', function() {
+      infowindow.open(map, marker);
+  });
   var marker1 = new google.maps.Marker({position: {lat: 42.2808 , lng: -83.7430}, map: map, title: 'Ann Arbor, MI'});
+  marker1.addListener('click', function() {
+      infowindow1.open(map, marker1);
+  });
   var marker2 = new google.maps.Marker({position: {lat: 42.3314 , lng: -83.0458}, map: map, title: 'Detroit, MI'});
   var marker3 = new google.maps.Marker({position: {lat: 42.7325 , lng: -84.5555}, map: map, title: 'Lansing, MI'});
   var marker4 = new google.maps.Marker({position: {lat: 28.5383 , lng: -81.3792}, map: map, title: 'Orlando, FL'});
+  marker4.addListener('click', function() {
+      infowindow2.open(map, marker4);
+  });
   var marker5 = new google.maps.Marker({position: {lat: 37.7749 , lng: -122.4194}, map: map, title: 'San Francisco, CA'});
   var marker6 = new google.maps.Marker({position: {lat: 32.7157 , lng: -117.1611}, map: map, title: 'San Diego, CA'});
   var marker7 = new google.maps.Marker({position: {lat: 34.0522 , lng: -118.2437}, map: map, title: 'Los Angeles, CA'});
