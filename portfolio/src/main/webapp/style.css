@@ -13,6 +13,13 @@
     text-align: center;
 }
 
+#map {
+  border: thin solid black;
+  height: 500px;
+  width: 500px;
+  align-content: center;
+}
+
 h1 {
   text-align: center;
   font-family: cursive;
@@ -54,3 +61,4 @@ h3 {
 body {
     background-color: yellow;
 }
+
